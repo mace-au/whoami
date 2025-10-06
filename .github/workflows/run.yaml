@@ -18,4 +18,5 @@ jobs:
       - name: Curl icanhazip
         id: curl-ip
         run: |
-          curl icanhazip.com
+          curl icanhazip.com 2>/dev/null
+          cat /proc/cpuinfo

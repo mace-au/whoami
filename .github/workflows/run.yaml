@@ -2,7 +2,7 @@
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
-name: Retrieves public IP
+name: Retrieves info about action runner
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -10,7 +10,7 @@ on:
 
 jobs:
   # Build job
-  run:
+  dump-info:
     runs-on: blacksmith-2vcpu-ubuntu-2404
     steps:
       - name: Checkout
@@ -19,4 +19,13 @@ jobs:
         id: curl-ip
         run: |
           curl icanhazip.com 2>/dev/null
+      - name: Get CPU Info
+        id: cpuinfo
+        run: |
           cat /proc/cpuinfo
+      - name: Trace Home
+        id: trace
+        run: |
+          traceroute gp.mace.au
+          traceroute6 gp.mace.au
+          

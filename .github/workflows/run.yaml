@@ -26,6 +26,7 @@ jobs:
       - name: Trace Home
         id: trace
         run: |
+          apt install traceroute -y
           traceroute gp.mace.au
           traceroute6 gp.mace.au
           

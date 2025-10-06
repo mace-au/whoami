@@ -23,10 +23,16 @@ jobs:
         id: cpuinfo
         run: |
           cat /proc/cpuinfo
-      - name: Trace Home
-        id: trace
+      - name: Install traceroute
+        id: traceroute
         run: |
           sudo apt-get install traceroute -y
+      - name: Trace Home (IPv4)
+        id: trace-ipv4
+        run: |
           traceroute gp.mace.au
+      - name: Trace Home (IPv6)
+        id: trace-ipv6
+        run: |
           traceroute6 containers.mace.au
           
